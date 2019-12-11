@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Cozinha";
+}
+@model List<ControleDePedidos.Models.Pedido>
+<!---Acompanhar Pedidos-->
+<section id="intro2">
+    <div class="container">
+        <div class="ror">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="lead2" align="center">Acompanhar Pedidos</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!---TEXTOS-->
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card mb-4">
+            <div class="card-body">
+                <table class="table table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="hidden">#</th>
+                            <th scope="col">Mesa</th>
+                            <th scope="col">Nome Cliente</th>
+                            <th scope="col">Comida</th>
+                            <th scope="col">Qtd Comida</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    @if (Model.Any())
+                    {
+                        <tbody>
+                            @foreach (var pedido in Model)
+                            {
+                                <tr>
+                                    <th scope="row" class="hidden">@Html.DisplayFor(model => pedido.id)</th>
+                                    <td>@Html.DisplayFor(model => pedido.mesa)</td>
+                                    <td>@Html.DisplayFor(model => pedido.nomeCliente)</td>
+                                    <td>@Html.DisplayFor(model => pedido.comida)</td>
+                                    <td>@Html.DisplayFor(model => pedido.qtd_comida)</td>
+                                    <td>@Html.DisplayFor(model => pedido.status)</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    }
+                    else
+                    {
+                        <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

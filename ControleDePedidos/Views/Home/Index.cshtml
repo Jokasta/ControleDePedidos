@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model ControleDePedidos.Models.Pedido
+
+@using (Html.BeginForm("FazerPedido", "Home", FormMethod.Post, new { @class = "", autocomplete = "off" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.mesa)
+        @Html.TextBoxFor(model => model.mesa, new { @class = "form-control", @type = "number" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nomeCliente)
+        @Html.TextBoxFor(model => model.nomeCliente, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.comida)
+        @Html.TextBoxFor(model => model.comida, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.qtd_comida)
+        @Html.TextBoxFor(model => model.qtd_comida, new { @class = "form-control", @type = "number" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.bebida)
+        @Html.TextBoxFor(model => model.bebida, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.qtd_bebida)
+        @Html.TextBoxFor(model => model.qtd_bebida, new { @class = "form-control", @type = "number" })
+    </div>
+    <button type="submit" class="btn btn-primary">Pedir</button>
+}
